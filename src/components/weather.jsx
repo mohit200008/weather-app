@@ -1,5 +1,6 @@
 import {Box, makeStyles} from '@material-ui/core';
 import logo from '../components/images/2942776.jpg';
+import Form from './Form';
 
 const useStyles= makeStyles({
     component : {
@@ -20,7 +21,7 @@ const useStyles= makeStyles({
         background:'linear-gradient(to right,#A2A5FF,#71AFE5)',
         height:'80vh',
         width: "70%",
-        borderRadius: '2px 20px 22px 2px'
+        borderRadius: '12px 20px 20px 2px'
     }
 })
 
@@ -30,7 +31,9 @@ const Weather = () => {
     return (
         <Box className= {classes.component}>
              <Box className={classes.leftContainer}></Box>
-             <Box className={classes.rightContainer}></Box>
+             <Box className={classes.rightContainer}>
+              <Form/>
+             </Box>
         </Box>
     )
 }
