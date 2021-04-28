@@ -24,28 +24,49 @@ const useStyles= makeStyles({
 
 const Form = () => {
     const classes=useStyles();
-    const [data,getWeatherData]= useState();
+    const [ data, getWeatherData ] = useState();
+    const [ city, setCity]=useState('');
+    const [ country,setCountry]= useState('');
+    const [ click, handleClick]=useState(false);
+
 
     useEffect(()=> {
-        getData().then(response => {
-            getWeatherData(data);
-            console.log(response.data)
+      const getweather=async()=>{  
+         city && await getData(city,country).then(response => {
+            getWeatherData(response.data);
+            console.log(response.data);
         })
-    },[]);
+    }
+    getweather();
+    handleClick(false);
+    },[click]);
+
+    const handleCityChange= (value) => {
+        setCity(value);
+    }
+
+    const handleCountryChange= (value) => {
+        setCountry(value);
+    }
     return (
-       <Box> 
-        <Box className={classes.component}>
+    <Box> 
+          <Box className={classes.component}>
            <TextField  
            inputProps={{className:classes.input}}
+           onChange={(e) => handleCityChange(e.target.value)}
            label="Your City"
            className= {classes.input} />
-           <TextField inputProps={{className: classes.input}} className={classes.input} label="Your Country"/>
+           <TextField inputProps={{className: classes.input}}
+           onChange={(e)=> handleCountryChange(e.target.value)} 
+           className={classes.input} 
+           label="Your Country"/>
            <Button 
-            className={classes.button} variant="outlined" color="#199EDF">Get the Weather</Button>
-        </Box>
+            className={classes.button} variant="outlined" onClick={()=>handleClick(true)} >Get the Weather</Button>
+         </Box>
         
-        <Information data = {data}/>
-       </Box> 
+         <Information data={data}/>
+       
+    </Box> 
     );
 }
 
