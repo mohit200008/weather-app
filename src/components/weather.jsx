@@ -15,14 +15,16 @@ const useStyles= makeStyles({
         height: '80vh',
         width:'30%',
         backgroundSize: 'cover',
-        borderRadius:'20px 0 0 22px',
+        borderRadius:'20px 2px 2px 20px',
     },
     rightContainer : {
         background:'linear-gradient(to right,#A2A5FF,#71AFE5)',
         height:'80vh',
         width: "70%",
-        borderRadius: '12px 20px 20px 2px'
+        borderRadius:"2px 20 20 2px"
+    
     }
+
 })
 
 
