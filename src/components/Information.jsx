@@ -26,10 +26,10 @@ const useStyles= makeStyles({
 })
 
 
-const Information = ({ data }) => {
+const Information = ({ city,country,data }) => {
     const classes= useStyles();
     return (
-        data ?
+        data && city && country ?
         <Box className={classes.component}> 
              <Typography className={classes.row}><MyLocationIcon className={classes.icon}/>Location <Box className={classes.value} component="span">{data.name},{data.sys.country}</Box></Typography>
              <Typography className={classes.row}><SettingsBrightnessIcon className={classes.icon}/> Temperature <Box className={classes.value} component="span">{data.main.temp}°C</Box></Typography>

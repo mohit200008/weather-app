@@ -8,7 +8,8 @@ const useStyles= makeStyles({
         display: 'flex',
         alignItems: 'center',
         width:'65%',
-        margin:' 0 auto'
+        margin:' 0 auto',
+        borderRadius: '10px 10px'
     },
     leftContainer: {
         backgroundImage: `url(${logo})`,

@@ -39,7 +39,7 @@ const Form = () => {
     }
     getweather();
     handleClick(false);
-    },[click]);
+    },[city,country,click]);
 
     const handleCityChange= (value) => {
         setCity(value);
@@ -64,7 +64,7 @@ const Form = () => {
             className={classes.button} variant="outlined" onClick={()=>handleClick(true)} >Get the Weather</Button>
          </Box>
         
-         <Information data={data}/>
+         <Information data={data} city={city} country={country}/>
        
     </Box> 
     );
